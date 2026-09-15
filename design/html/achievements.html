@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>VolcVein — Marks</title>
+<style>
+:root{--magma:#FF5A1F;--magma-hot:#FF8A2B;--magma-core:#FFD07A;--sulfur:#FFC21A;--sulfur-deep:#D99200;
+--ink:#2B0F08;--rock-deep:#5A1E0C;--rock:#8C3410;--rock-lit:#B8471A;--ash:#F2E7D8;--ash-mid:#C9B7A4;
+--ash-deep:#9A8776;--obsidian:#12383D;--obsidian-lit:#1E5A60;--danger:#C22A12;
+--display:"Avenir Next Condensed","Futura",sans-serif;--body:"Avenir Next","Helvetica Neue",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body{width:390px;height:844px;overflow:hidden}
+body{font-family:var(--body);background:var(--rock-deep);color:var(--ash);position:relative}
+.screen{position:absolute;inset:0;overflow:hidden}
+.grain{position:absolute;inset:-24px;pointer-events:none;mix-blend-mode:multiply;opacity:.22;z-index:95;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");background-size:140px 140px}
+.micro{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.rockbg{position:absolute;inset:0;background:linear-gradient(172deg,#A8400F 0%,#7A2A0B 42%,#571C08 76%,#3E1306 100%)}
+.rockbg:after{content:"";position:absolute;inset:0;
+ background-image:radial-gradient(circle at 50% 50%, rgba(255,120,40,.26) 1.1px, transparent 1.35px);background-size:5px 5px}
+
+.sash{position:absolute;left:0;right:0;top:0;height:124px;z-index:40;background:var(--ink);
+ clip-path:polygon(0 0,100% 0,100% 100%,0 88%);box-shadow:0 12px 24px rgba(43,15,8,.5)}
+.sash .in{position:absolute;left:14px;right:14px;top:50px;display:flex;align-items:center;gap:12px}
+.back{width:44px;height:44px;flex:none;background:var(--rock);border:3px solid var(--ash-mid);
+ display:flex;align-items:center;justify-content:center}
+.sash h1{font-family:var(--display);font-weight:800;font-size:30px;line-height:.96;letter-spacing:-.01em;
+ text-transform:uppercase;color:var(--ash)}
+.sash h1 em{font-style:normal;color:var(--sulfur)}
+.sash .sub{color:var(--ash-deep);margin-top:4px}
+.sash .cnt{margin-left:auto;text-align:right;flex:none}
+.sash .cnt b{display:block;font-family:var(--display);font-weight:800;font-size:28px;color:var(--sulfur);line-height:.9}
+.sash .cnt i{font-style:normal;color:var(--ash-deep);font-family:var(--display);font-weight:800;
+ font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+
+/* struck-mark wall */
+.wall{position:absolute;left:14px;right:14px;top:136px;z-index:20;display:flex;flex-direction:column;gap:11px}
+.mark{display:flex;align-items:center;gap:12px;background:var(--ash);color:var(--ink);
+ padding:11px 13px;border-left:6px solid var(--sulfur);
+ box-shadow:0 4px 0 rgba(43,15,8,.5),0 10px 18px rgba(43,15,8,.32)}
+.mark.lock{background:rgba(32,12,6,.88);color:var(--ash);border-left-color:var(--obsidian-lit);
+ box-shadow:0 4px 0 rgba(0,0,0,.4)}
+.mark .disc{width:52px;height:52px;flex:none}
+.mark .t{flex:1;min-width:0}
+.mark .t b{display:block;font-family:var(--display);font-weight:800;font-size:21px;line-height:1.02;text-transform:uppercase}
+.mark .t p{font-size:12px;color:#7A4A32;margin-top:2px;line-height:1.3}
+.mark.lock .t p{color:var(--ash-deep)}
+.bar{height:7px;background:#DCCBB6;margin-top:7px;position:relative;overflow:hidden}
+.mark.lock .bar{background:#3E2118}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--magma);display:block}
+.mark.lock .bar i{background:var(--obsidian-lit)}
+.mark .pct{flex:none;font-family:var(--display);font-weight:800;font-size:19px;color:var(--sulfur-deep)}
+.mark.lock .pct{color:var(--ash-deep)}
+
+.banner{position:absolute;left:14px;right:14px;bottom:20px;z-index:36;background:var(--ink);
+ border-bottom:4px solid var(--magma);padding:11px 14px;display:flex;align-items:center;gap:12px;
+ box-shadow:0 12px 24px rgba(43,15,8,.5)}
+.banner b{font-family:var(--display);font-weight:800;font-size:30px;color:var(--sulfur);line-height:1}
+.banner span{color:var(--ash-deep);font-size:12px;line-height:1.3}
+.banner .track{flex:1;height:10px;background:#3E2118;position:relative}
+.banner .track i{position:absolute;left:0;top:0;bottom:0;width:39%;background:var(--magma)}
+</style></head>
+<body><div class="screen">
+  <div class="rockbg"></div>
+
+  <div class="wall">
+    <div class="mark">
+      <div class="disc" data-asset="mark_first_cast">
+        <svg viewBox="0 0 52 52" width="52" height="52">
+          <circle cx="26" cy="26" r="23" fill="#FFC21A" stroke="#2B0F08" stroke-width="4"/>
+          <polygon points="26,10 38,20 34,40 18,40 14,20" fill="#12383D" stroke="#2B0F08" stroke-width="3"/>
+          <polygon points="26,10 34,40 18,40" fill="#1E5A60"/>
+        </svg>
+      </div>
+      <div class="t"><b>First Pour</b><p>Fill your first rim mold.</p><div class="bar"><i style="width:100%"></i></div></div>
+      <div class="pct">✓</div>
+    </div>
+
+    <div class="mark">
+      <div class="disc" data-asset="mark_dry_run">
+        <svg viewBox="0 0 52 52" width="52" height="52">
+          <circle cx="26" cy="26" r="23" fill="#FFC21A" stroke="#2B0F08" stroke-width="4"/>
+          <polygon points="26,9 33,13 33,22 26,26 19,22 19,13" fill="#FF5A1F" stroke="#2B0F08" stroke-width="3"/>
+          <path d="M26,26 L26,42" stroke="#2B0F08" stroke-width="5" stroke-linecap="round"/>
+          <path d="M16,36 L36,36" stroke="#2B0F08" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="t"><b>Never Shut Twice</b><p>Clear a vent without reopening a vein.</p><div class="bar"><i style="width:100%"></i></div></div>
+      <div class="pct">✓</div>
+    </div>
+
+    <div class="mark">
+      <div class="disc" data-asset="mark_redline">
+        <svg viewBox="0 0 52 52" width="52" height="52">
+          <circle cx="26" cy="26" r="23" fill="#FFC21A" stroke="#2B0F08" stroke-width="4"/>
+          <rect x="19" y="10" width="14" height="32" fill="#2B0F08"/>
+          <rect x="22" y="13" width="8" height="26" fill="#C22A12"/>
+          <rect x="22" y="13" width="8" height="8" fill="#F2E7D8"/>
+        </svg>
+      </div>
+      <div class="t"><b>Redline Nerve</b><p>Hold pressure above 90% for ten seconds.</p><div class="bar"><i style="width:100%"></i></div></div>
+      <div class="pct">✓</div>
+    </div>
+
+    <div class="mark lock">
+      <div class="disc" data-asset="mark_crustbreaker">
+        <svg viewBox="0 0 52 52" width="52" height="52">
+          <circle cx="26" cy="26" r="23" fill="#12383D" stroke="#9A8776" stroke-width="4"/>
+          <path d="M13,32 L26,14 L39,32" fill="none" stroke="#C9B7A4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20,40 L32,40" stroke="#C9B7A4" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="t"><b>Crustbreaker</b><p>Blow open 25 crusted veins.</p><div class="bar"><i style="width:68%"></i></div></div>
+      <div class="pct">17/25</div>
+    </div>
+
+    <div class="mark lock">
+      <div class="disc" data-asset="mark_full_yield">
+        <svg viewBox="0 0 52 52" width="52" height="52">
+          <circle cx="26" cy="26" r="23" fill="#12383D" stroke="#9A8776" stroke-width="4"/>
+          <g fill="none" stroke="#C9B7A4" stroke-width="4" stroke-linecap="round">
+            <path d="M26,40 L26,26"/><path d="M26,26 L14,14"/><path d="M26,26 L38,14"/>
+          </g>
+          <circle cx="26" cy="26" r="5" fill="#1E5A60" stroke="#C9B7A4" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="t"><b>Nothing Wasted</b><p>Finish a rift at 100% yield across six vents.</p><div class="bar"><i style="width:50%"></i></div></div>
+      <div class="pct">3/6</div>
+    </div>
+
+    <div class="mark lock">
+      <div class="disc" data-asset="mark_deep_rift">
+        <svg viewBox="0 0 52 52" width="52" height="52">
+          <circle cx="26" cy="26" r="23" fill="#12383D" stroke="#9A8776" stroke-width="4"/>
+          <path d="M14,14 L26,42 L38,14" fill="none" stroke="#C9B7A4" stroke-width="5" stroke-linejoin="round"/>
+          <circle cx="26" cy="18" r="4" fill="#C9B7A4"/>
+        </svg>
+      </div>
+      <div class="t"><b>Throat Of The Mountain</b><p>Reach Rift IV.</p><div class="bar"><i style="width:0%"></i></div></div>
+      <div class="pct">0/1</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div><b>7/18</b></div>
+    <div style="flex:1">
+      <span>Marks struck into the caldera wall</span>
+      <div class="track"><i></i></div>
+    </div>
+  </div>
+
+  <div class="sash">
+    <div class="in">
+      <div class="back" data-asset="btn_back_stone">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15,4 L7,12 L15,20" fill="none" stroke="#F2E7D8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h1>Struck <em>Marks</em></h1>
+        <div class="sub micro">Eighteen to strike</div>
+      </div>
+      <div class="cnt"><b>7/18</b><i>Struck</i></div>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</div></body></html>

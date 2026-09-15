@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>VolcVein — Caldera</title>
+<style>
+:root{
+ --magma:#FF5A1F;--magma-hot:#FF8A2B;--magma-core:#FFD07A;
+ --sulfur:#FFC21A;--sulfur-deep:#D99200;
+ --ink:#2B0F08;--rock-deep:#5A1E0C;--rock:#8C3410;--rock-lit:#B8471A;
+ --ash:#F2E7D8;--ash-mid:#C9B7A4;--ash-deep:#9A8776;
+ --obsidian:#12383D;--obsidian-lit:#1E5A60;--danger:#C22A12;
+ --display:"Avenir Next Condensed","Futura",sans-serif;
+ --body:"Avenir Next","Helvetica Neue",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body{width:390px;height:844px;overflow:hidden}
+body{font-family:var(--body);background:var(--rock-deep);color:var(--ash);position:relative}
+.screen{position:absolute;inset:0;overflow:hidden}
+.grain{position:absolute;inset:-24px;pointer-events:none;mix-blend-mode:multiply;opacity:.22;z-index:95;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+ background-size:140px 140px}
+.micro{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+
+.sky{position:absolute;left:0;right:0;top:0;height:300px;
+ background:linear-gradient(178deg,#FFF0C6 0%,#FFD089 30%,#FFA95A 62%,#FF8438 100%)}
+.sky-ht{position:absolute;left:0;right:0;top:0;height:300px;color:rgba(196,58,10,.4);
+ background-image:radial-gradient(circle at 50% 50%, currentColor 1.05px, transparent 1.3px);
+ background-size:5px 5px;
+ -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.9) 72%,#000 100%)}
+.sun{position:absolute;right:26px;top:36px;width:78px;height:78px;border-radius:50%;
+ background:#FFF6D8;box-shadow:0 0 0 9px rgba(255,246,216,.32),0 0 0 22px rgba(255,246,216,.14)}
+.plume{position:absolute;left:70px;top:4px;width:250px;height:262px;z-index:4}
+.mtn{position:absolute;left:0;top:146px;width:390px;height:698px;z-index:5}
+
+.logo{position:absolute;left:14px;top:66px;z-index:30;transform:rotate(-4.5deg);
+ padding:12px 18px 13px;background:var(--ink);border-left:6px solid var(--magma);
+ box-shadow:8px 8px 0 rgba(43,15,8,.3),0 16px 28px rgba(43,15,8,.38)}
+.logo b{display:block;font-family:var(--display);font-weight:800;font-size:58px;line-height:.84;
+ letter-spacing:-.025em;text-transform:uppercase;color:var(--ash);text-shadow:3px 3px 0 rgba(255,90,31,.9)}
+.logo b.two{color:var(--sulfur)}
+.logo .tag{display:block;margin-top:8px;color:var(--magma-core)}
+
+.fissure{position:absolute;left:52px;top:592px;width:286px;height:100px;z-index:40;
+ transform:rotate(-3deg);filter:drop-shadow(0 12px 20px rgba(43,15,8,.6))}
+.fissure .body{position:absolute;inset:0;
+ background:linear-gradient(180deg,var(--sulfur) 0%,var(--sulfur) 60%,var(--sulfur-deep) 100%);
+ clip-path:polygon(0% 26%,7% 7%,26% 15%,44% 2%,63% 11%,82% 3%,96% 14%,100% 40%,94% 74%,99% 96%,76% 88%,57% 99%,36% 90%,17% 98%,4% 80%,1% 54%)}
+.fissure .lbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+.fissure .lbl s{font-family:var(--display);font-weight:800;font-size:42px;line-height:.92;letter-spacing:.02em;
+ text-transform:uppercase;color:var(--ink);text-decoration:none;text-shadow:0 2px 0 rgba(255,255,255,.35)}
+.fissure .lbl em{font-style:normal;color:#6B2A05;font-family:var(--display);font-weight:800;
+ font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+
+.nav{position:absolute;z-index:38;display:flex;flex-direction:column;align-items:center;gap:6px}
+.nav .cap{background:var(--ink);color:var(--ash);padding:4px 9px;box-shadow:0 3px 0 rgba(43,15,8,.5);
+ border-bottom:2px solid var(--magma)}
+.nav-cast{left:8px;top:316px}
+.nav-marks{right:6px;top:258px}
+.nav-valve{right:18px;top:698px}
+
+.stat-wall{position:absolute;left:14px;bottom:18px;width:206px;z-index:45;
+ background:rgba(28,9,4,.92);border-left:5px solid var(--magma);padding:10px 14px 12px;
+ box-shadow:0 4px 0 rgba(0,0,0,.4),0 12px 24px rgba(0,0,0,.5)}
+.stat-wall .k{color:var(--ash-deep)}
+.stat-wall .big{font-family:var(--display);font-weight:800;font-size:38px;line-height:.92;
+ color:var(--sulfur);letter-spacing:-.01em}
+.stat-wall .row{display:flex;gap:17px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(242,231,216,.22)}
+.stat-wall .row span{display:block;font-family:var(--display);font-weight:800;font-size:21px;color:var(--ash);line-height:1}
+</style></head>
+<body><div class="screen">
+
+  <div class="sky"></div><div class="sky-ht"></div><div class="sun"></div>
+
+  <div class="plume" data-asset="ash_plume">
+    <svg viewBox="0 0 250 262" width="250" height="262">
+      <g opacity=".62">
+        <ellipse cx="128" cy="214" rx="44" ry="28" fill="#F7E6CC"/>
+        <ellipse cx="92" cy="178" rx="46" ry="34" fill="#F1DBBA"/>
+        <ellipse cx="158" cy="164" rx="52" ry="38" fill="#F7E6CC"/>
+        <ellipse cx="108" cy="118" rx="56" ry="42" fill="#EDD3AE"/>
+        <ellipse cx="168" cy="94" rx="44" ry="34" fill="#F7E6CC"/>
+        <ellipse cx="116" cy="54" rx="60" ry="41" fill="#E8CBA2"/>
+        <ellipse cx="70" cy="86" rx="38" ry="28" fill="#F1DBBA"/>
+      </g>
+      <g fill="#C4470F" opacity=".2">
+        <circle cx="74" cy="212" r="4"/><circle cx="180" cy="190" r="5"/><circle cx="56" cy="142" r="4"/>
+        <circle cx="202" cy="122" r="4"/><circle cx="98" cy="30" r="5"/><circle cx="184" cy="52" r="3"/>
+      </g>
+      <g fill="#FF5A1F"><circle cx="140" cy="238" r="4"/><circle cx="106" cy="248" r="3"/><circle cx="168" cy="228" r="3"/></g>
+    </svg>
+  </div>
+
+  <div class="mtn" data-asset="mountain_cross_section">
+    <svg viewBox="0 0 390 698" width="390" height="698">
+      <defs>
+        <linearGradient id="rockG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#D4551E"/><stop offset=".3" stop-color="#AE3F14"/>
+          <stop offset=".68" stop-color="#84300F"/><stop offset="1" stop-color="#521A08"/>
+        </linearGradient>
+        <linearGradient id="poolG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFE2A6"/><stop offset=".4" stop-color="#FF7A2E"/>
+          <stop offset="1" stop-color="#B8471A"/>
+        </linearGradient>
+      </defs>
+
+      <path d="M-10,698 L-10,318 L44,258 L92,202 L136,148 L164,112 L180,96 L194,88 L204,98 L212,90 L224,104 L250,140 L294,198 L342,256 L400,314 L400,698 Z"
+            fill="url(#rockG)"/>
+      <path d="M-10,318 L44,258 L92,202 L136,148 L164,112 L180,96 L194,88 L204,98 L212,90 L224,104 L250,140 L294,198 L342,256 L400,314"
+            fill="none" stroke="#FFC21A" stroke-width="3.5" opacity=".8"/>
+      <path d="M186,96 L204,98 L212,90 L214,108 L184,110 Z" fill="#FF5A1F" stroke="#2B0F08" stroke-width="3"/>
+      <ellipse cx="199" cy="104" rx="11" ry="4" fill="#FFE2A6"/>
+
+      <g stroke="#E8712B" stroke-width="3" fill="none" opacity=".55">
+        <path d="M-10,372 C70,350 122,358 198,338 C268,320 332,338 400,364"/>
+        <path d="M-10,466 C80,448 142,458 202,438 C272,416 332,434 400,462"/>
+        <path d="M-10,556 C70,542 152,554 208,534 C270,512 338,530 400,558"/>
+      </g>
+      <g stroke="#4A1508" stroke-width="2" fill="none" opacity=".4">
+        <path d="M-10,416 C70,396 132,406 200,386 C270,364 334,382 400,410"/>
+        <path d="M-10,510 C80,494 148,504 204,484 C272,462 336,480 400,508"/>
+      </g>
+
+      <ellipse cx="196" cy="600" rx="138" ry="56" fill="#7A2409"/>
+      <ellipse cx="196" cy="602" rx="118" ry="44" fill="url(#poolG)"/>
+      <ellipse cx="196" cy="594" rx="80" ry="23" fill="#FFE2A6" opacity=".8"/>
+      <g fill="#FFF6D8" opacity=".9"><circle cx="150" cy="594" r="4"/><circle cx="244" cy="600" r="3"/><circle cx="196" cy="584" r="3"/></g>
+
+      <g fill="none" stroke="#3D1105" stroke-width="16" stroke-linecap="round">
+        <path d="M196,590 C198,520 186,470 180,420"/>
+        <path d="M180,420 C168,360 126,318 100,268"/>
+        <path d="M180,420 C212,378 240,346 262,318"/>
+        <path d="M262,318 C274,272 264,232 252,198"/>
+        <path d="M262,318 C296,330 318,312 336,288"/>
+        <path d="M190,504 C148,492 112,472 80,436"/>
+      </g>
+      <g fill="none" stroke="#FF5A1F" stroke-width="9" stroke-linecap="round">
+        <path d="M196,590 C198,520 186,470 180,420"/>
+        <path d="M180,420 C168,360 126,318 100,268"/>
+        <path d="M180,420 C212,378 240,346 262,318"/>
+        <path d="M262,318 C274,272 264,232 252,198"/>
+        <path d="M262,318 C296,330 318,312 336,288"/>
+      </g>
+      <g fill="none" stroke="#FFE2A6" stroke-width="2.8" stroke-linecap="round" opacity=".92">
+        <path d="M196,590 C198,520 186,470 180,420"/>
+        <path d="M180,420 C168,360 126,318 100,268"/>
+        <path d="M180,420 C212,378 240,346 262,318"/>
+        <path d="M262,318 C274,272 264,232 252,198"/>
+        <path d="M262,318 C296,330 318,312 336,288"/>
+      </g>
+      <path d="M190,504 C148,492 112,472 80,436" fill="none" stroke="#12383D" stroke-width="9"
+            stroke-linecap="round" stroke-dasharray="12 8"/>
+
+      <g>
+        <polygon points="180,404 194,412 194,428 180,436 166,428 166,412" fill="#FFC21A" stroke="#2B0F08" stroke-width="3.5"/>
+        <polygon points="262,302 276,310 276,326 262,334 248,326 248,310" fill="#FFC21A" stroke="#2B0F08" stroke-width="3.5"/>
+        <polygon points="190,488 204,496 204,512 190,520 176,512 176,496" fill="#9A8776" stroke="#2B0F08" stroke-width="3.5"/>
+        <g stroke="#2B0F08" stroke-width="3.5"><path d="M176,504 L204,504"/></g>
+      </g>
+
+      <g stroke="#2B0F08" stroke-width="4">
+        <circle cx="99" cy="266" r="14" fill="#FFC21A"/>
+        <circle cx="251" cy="195" r="14" fill="#FFC21A"/>
+        <circle cx="337" cy="286" r="14" fill="#FFC21A"/>
+        <circle cx="78" cy="433" r="14" fill="#12383D" stroke="#C9B7A4"/>
+      </g>
+      <g fill="#FF5A1F"><circle cx="99" cy="266" r="5.5"/><circle cx="251" cy="195" r="5.5"/><circle cx="337" cy="286" r="5.5"/></g>
+      <g><circle cx="78" cy="433" r="6" fill="#1E5A60"/><path d="M68,423 L88,443 M88,423 L68,443" stroke="#C9B7A4" stroke-width="3" stroke-linecap="round"/></g>
+
+      <g fill="#FFC21A" opacity=".9">
+        <circle cx="124" cy="232" r="3"/><circle cx="276" cy="166" r="2.5"/><circle cx="322" cy="238" r="3"/>
+        <circle cx="228" cy="160" r="2"/><circle cx="82" cy="230" r="2.5"/><circle cx="304" cy="360" r="2.5"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="logo" data-asset="logo_volcvein">
+    <b>Volc</b><b class="two">Vein</b>
+    <span class="tag micro">Shut a vein · steer the pressure</span>
+  </div>
+
+  <div class="fissure" data-asset="fissure_play_plate">
+    <div class="body"></div>
+    <div class="lbl"><s>Erupt</s><em>Rift II · Vent 07</em></div>
+  </div>
+
+  <div class="nav nav-cast">
+    <div data-asset="icon_obsidian_plinth">
+      <svg viewBox="0 0 96 106" width="96" height="106">
+        <polygon points="10,106 86,106 76,82 20,82" fill="#5A1E0C" stroke="#2B0F08" stroke-width="3.5"/>
+        <rect x="26" y="72" width="44" height="12" fill="#8C3410" stroke="#2B0F08" stroke-width="3.5"/>
+        <polygon points="48,6 72,38 62,72 34,72 24,38" fill="#12383D" stroke="#2B0F08" stroke-width="4"/>
+        <polygon points="48,6 62,72 34,72" fill="#1E5A60"/>
+        <polygon points="48,6 55,44 48,72 41,44" fill="#6FB5AE" opacity=".78"/>
+        <circle cx="48" cy="24" r="3.5" fill="#FFC21A"/>
+        <g fill="#FFC21A" opacity=".85"><circle cx="20" cy="30" r="2.5"/><circle cx="78" cy="52" r="2.5"/></g>
+      </svg>
+    </div>
+    <div class="cap micro">Casts 5/12</div>
+  </div>
+
+  <div class="nav nav-marks">
+    <div data-asset="icon_stone_tablet">
+      <svg viewBox="0 0 90 100" width="90" height="100">
+        <polygon points="7,16 80,5 87,82 14,95" fill="#C9B7A4" stroke="#2B0F08" stroke-width="4"/>
+        <polygon points="7,16 80,5 82,23 9,34" fill="#9A8776"/>
+        <g stroke="#2B0F08" stroke-width="4.5" stroke-linecap="round">
+          <path d="M21,46 L49,42"/><path d="M21,60 L61,55"/><path d="M21,74 L44,70"/>
+        </g>
+        <g stroke="#FF5A1F" stroke-width="4.5" stroke-linecap="round">
+          <path d="M21,46 L49,42"/><path d="M21,60 L61,55"/>
+        </g>
+        <polygon points="62,68 71,77 62,86 53,77" fill="#FFC21A" stroke="#2B0F08" stroke-width="3.5"/>
+      </svg>
+    </div>
+    <div class="cap micro">Marks 7/18</div>
+  </div>
+
+  <div class="nav nav-valve">
+    <div data-asset="icon_valve_wheel">
+      <svg viewBox="0 0 70 70" width="70" height="70">
+        <circle cx="35" cy="35" r="30" fill="#8C3410" stroke="#2B0F08" stroke-width="4"/>
+        <g stroke="#2B0F08" stroke-width="8" stroke-linecap="round">
+          <path d="M35,7 L35,63"/><path d="M7,35 L63,35"/><path d="M15,15 L55,55"/><path d="M55,15 L15,55"/>
+        </g>
+        <g stroke="#FFC21A" stroke-width="4.5" stroke-linecap="round">
+          <path d="M35,9 L35,61"/><path d="M9,35 L61,35"/><path d="M16,16 L54,54"/><path d="M54,16 L16,54"/>
+        </g>
+        <circle cx="35" cy="35" r="10" fill="#FF5A1F" stroke="#2B0F08" stroke-width="4"/>
+      </svg>
+    </div>
+    <div class="cap micro">Settings</div>
+  </div>
+
+  <div class="stat-wall">
+    <div class="k micro">Best cast</div>
+    <div class="big">8,420</div>
+    <div class="row">
+      <div><span>2/4</span><div class="k micro">Rifts</div></div>
+      <div><span>11</span><div class="k micro">Deepest</div></div>
+      <div><span>93%</span><div class="k micro">Yield</div></div>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</div></body></html>

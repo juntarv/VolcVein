@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="NO" userDefinedModelVersionIdentifier="">
+    <entity name="DailyRunEntity" representedClassName="DailyRunEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="archetype" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="attempts" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="completed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dayKey" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="moldsFilled" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="playedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="score" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="stars" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="yield" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="VigilEntity" representedClassName="VigilEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="bestStreak" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="currentStreak" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lastPlayDay" optional="YES" attributeType="String"/>
+        <attribute name="totalDays" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="totalRuns" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CastEntity" representedClassName="CastEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="assetName" optional="YES" attributeType="String"/>
+        <attribute name="awardVent" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="castKey" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="earnedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="earnedStars" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="earnedYield" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="orderIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="story" optional="YES" attributeType="String"/>
+        <attribute name="unlocked" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="MarkEntity" representedClassName="MarkEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="assetName" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="detail" optional="YES" attributeType="String"/>
+        <attribute name="earned" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="earnedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="markKey" optional="YES" attributeType="String"/>
+        <attribute name="orderIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="progress" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="target" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PreferenceEntity" representedClassName="PreferenceEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="animationsOn" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="firstLaunchCompleted" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="hapticsOn" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="RiftEntity" representedClassName="RiftEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="riftIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="subtitle" optional="YES" attributeType="String"/>
+        <attribute name="unlocked" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="ventCount" attributeType="Integer 16" defaultValueString="6" usesScalarValueType="YES"/>
+        <relationship name="vents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VentProgressEntity" inverseName="rift" inverseEntity="VentProgressEntity"/>
+    </entity>
+    <entity name="RunRecordEntity" representedClassName="RunRecordEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="crustsBlown" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="durationSeconds" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="moldsCracked" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="moldsFilled" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="peakPressure" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="riftIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="score" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="starsEarned" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="succeeded" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="veinsCrusted" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ventNumber" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="yield" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="VentProgressEntity" representedClassName="VentProgressEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="attempts" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bestMoldsFilled" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bestScore" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bestYield" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="cleared" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="clearedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="riftIndex" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="starsEarned" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="unlocked" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="ventNumber" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="rift" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RiftEntity" inverseName="vents" inverseEntity="RiftEntity"/>
+    </entity>
+</model>

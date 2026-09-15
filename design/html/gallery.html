@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>VolcVein — Obsidian Casts</title>
+<style>
+:root{--magma:#FF5A1F;--magma-hot:#FF8A2B;--magma-core:#FFD07A;--sulfur:#FFC21A;--sulfur-deep:#D99200;
+--ink:#2B0F08;--rock-deep:#5A1E0C;--rock:#8C3410;--rock-lit:#B8471A;--ash:#F2E7D8;--ash-mid:#C9B7A4;
+--ash-deep:#9A8776;--obsidian:#12383D;--obsidian-lit:#1E5A60;--danger:#C22A12;
+--display:"Avenir Next Condensed","Futura",sans-serif;--body:"Avenir Next","Helvetica Neue",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body{width:390px;height:844px;overflow:hidden}
+body{font-family:var(--body);background:var(--rock-deep);color:var(--ash);position:relative}
+.screen{position:absolute;inset:0;overflow:hidden}
+.grain{position:absolute;inset:-24px;pointer-events:none;mix-blend-mode:multiply;opacity:.22;z-index:95;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");background-size:140px 140px}
+.micro{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.rockbg{position:absolute;inset:0;background:linear-gradient(172deg,#A8400F 0%,#7A2A0B 42%,#571C08 76%,#3E1306 100%)}
+.rockbg:after{content:"";position:absolute;inset:0;
+ background-image:radial-gradient(circle at 50% 50%, rgba(255,120,40,.26) 1.1px, transparent 1.35px);background-size:5px 5px}
+
+.sash{position:absolute;left:0;right:0;top:0;height:124px;z-index:40;background:var(--ink);
+ clip-path:polygon(0 0,100% 0,100% 100%,0 88%);box-shadow:0 12px 24px rgba(43,15,8,.5)}
+.sash .in{position:absolute;left:14px;right:14px;top:50px;display:flex;align-items:center;gap:12px}
+.back{width:44px;height:44px;flex:none;background:var(--rock);border:3px solid var(--ash-mid);
+ display:flex;align-items:center;justify-content:center}
+.sash h1{font-family:var(--display);font-weight:800;font-size:30px;line-height:.96;letter-spacing:-.01em;
+ text-transform:uppercase;color:var(--ash)}
+.sash h1 em{font-style:normal;color:var(--sulfur)}
+.sash .sub{color:var(--ash-deep);margin-top:4px}
+.sash .cnt{margin-left:auto;text-align:right;flex:none}
+.sash .cnt b{display:block;font-family:var(--display);font-weight:800;font-size:28px;color:var(--sulfur);line-height:.9}
+.sash .cnt i{font-style:normal;color:var(--ash-deep);font-family:var(--display);font-weight:800;
+ font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+
+/* shelves cut out of the strata */
+.shelf{position:absolute;left:0;right:0;height:16px;background:linear-gradient(180deg,#C9531F 0%,#8C3410 45%,#3A1206 100%);
+ border-top:3px solid #E8712B;box-shadow:0 10px 22px rgba(43,15,8,.55);z-index:12}
+.s1{top:298px}.s2{top:454px}.s3{top:602px}
+.shelf-tag{position:absolute;z-index:14;background:var(--ink);color:var(--ash-deep);padding:3px 8px}
+.item{position:absolute;z-index:16;text-align:center}
+.item .nm{display:inline-block;background:var(--ink);color:var(--ash);padding:2px 7px;margin-top:2px;
+ box-shadow:0 2px 0 rgba(0,0,0,.5)}
+.item.lock .nm{background:rgba(18,56,61,.95);color:var(--ash-mid)}
+
+.detail{position:absolute;left:14px;right:14px;bottom:22px;z-index:30;background:var(--ash);color:var(--ink);
+ border-left:6px solid var(--sulfur);padding:13px 15px 15px;
+ box-shadow:0 5px 0 rgba(43,15,8,.5),0 16px 30px rgba(43,15,8,.45);display:flex;gap:14px;align-items:center}
+.detail h2{font-family:var(--display);font-weight:800;font-size:26px;line-height:1;text-transform:uppercase}
+.detail p{font-size:13px;color:#6B4030;margin-top:5px;line-height:1.35}
+.detail .k{color:#9A6A52;margin-top:8px}
+</style></head>
+<body><div class="screen">
+  <div class="rockbg"></div>
+
+  <div class="shelf s1"></div><div class="shelf s2"></div><div class="shelf s3"></div>
+  <div class="shelf-tag micro" style="left:14px;top:158px">Rift I casts</div>
+  <div class="shelf-tag micro" style="left:14px;top:336px">Rift II casts</div>
+  <div class="shelf-tag micro" style="left:14px;top:506px">Rift III–IV casts</div>
+
+  <!-- ===== shelf 1 : three large casts ===== -->
+  <div class="item" style="left:18px;top:186px">
+    <div data-asset="cast_emberdrop">
+      <svg viewBox="0 0 96 112" width="96" height="112">
+        <polygon points="48,4 82,40 70,104 26,104 14,40" fill="#12383D" stroke="#2B0F08" stroke-width="4"/>
+        <polygon points="48,4 70,104 26,104" fill="#1E5A60"/>
+        <polygon points="48,4 56,52 48,104 40,52" fill="#79C0B8" opacity=".82"/>
+        <circle cx="48" cy="30" r="4" fill="#FFC21A"/>
+      </svg>
+    </div>
+    <div class="nm micro">Emberdrop</div>
+  </div>
+  <div class="item" style="left:134px;top:196px">
+    <div data-asset="cast_twinvane">
+      <svg viewBox="0 0 100 102" width="100" height="102">
+        <polygon points="28,94 12,44 38,8 54,44" fill="#12383D" stroke="#2B0F08" stroke-width="4"/>
+        <polygon points="72,94 52,48 76,14 90,52" fill="#12383D" stroke="#2B0F08" stroke-width="4"/>
+        <polygon points="38,8 54,44 28,94" fill="#1E5A60"/>
+        <polygon points="76,14 90,52 72,94" fill="#1E5A60"/>
+        <polygon points="38,8 43,50 33,90 30,48" fill="#79C0B8" opacity=".8"/>
+        <circle cx="60" cy="70" r="4" fill="#FFC21A"/>
+      </svg>
+    </div>
+    <div class="nm micro">Twin Vane</div>
+  </div>
+  <div class="item" style="left:252px;top:200px">
+    <div data-asset="cast_sulfurknot">
+      <svg viewBox="0 0 98 98" width="98" height="98">
+        <polygon points="49,4 82,24 92,62 66,92 30,92 6,62 16,24" fill="#12383D" stroke="#2B0F08" stroke-width="4"/>
+        <polygon points="49,4 92,62 66,92 30,92" fill="#1E5A60"/>
+        <polygon points="49,20 72,60 49,80 28,60" fill="#FFC21A" stroke="#2B0F08" stroke-width="3"/>
+        <polygon points="49,32 62,58 49,70 38,58" fill="#FF5A1F"/>
+      </svg>
+    </div>
+    <div class="nm micro">Sulfur Knot</div>
+  </div>
+
+  <!-- ===== shelf 2 : four mid casts (2 locked) ===== -->
+  <div class="item" style="left:16px;top:372px">
+    <div data-asset="cast_bridleshard">
+      <svg viewBox="0 0 74 78" width="74" height="78">
+        <polygon points="37,4 64,30 54,72 20,72 10,30" fill="#12383D" stroke="#2B0F08" stroke-width="3.5"/>
+        <polygon points="37,4 54,72 20,72" fill="#1E5A60"/>
+        <polygon points="37,4 44,40 37,72 30,40" fill="#79C0B8" opacity=".8"/>
+      </svg>
+    </div><div class="nm micro">Bridle</div>
+  </div>
+  <div class="item" style="left:110px;top:364px">
+    <div data-asset="cast_crownfracture">
+      <svg viewBox="0 0 84 86" width="84" height="86">
+        <polygon points="10,80 18,26 34,50 42,6 54,48 68,24 74,80" fill="#12383D" stroke="#2B0F08" stroke-width="3.5"/>
+        <polygon points="42,6 54,48 68,24 74,80 42,80" fill="#1E5A60"/>
+        <circle cx="42" cy="62" r="5" fill="#FFC21A"/>
+      </svg>
+    </div><div class="nm micro">Crownfract</div>
+  </div>
+  <div class="item lock" style="left:212px;top:378px">
+    <div data-asset="cast_locked_lump">
+      <svg viewBox="0 0 72 70" width="72" height="70">
+        <polygon points="14,64 6,34 24,10 52,8 68,32 58,64" fill="#5A4A3E" stroke="#9A8776" stroke-width="3.5"/>
+        <polygon points="24,10 52,8 68,32 36,36" fill="#6E5B4C"/>
+        <path d="M26,30 L46,48 M46,30 L26,48" stroke="#C9B7A4" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div><div class="nm micro">Needs 3★</div>
+  </div>
+  <div class="item lock" style="left:302px;top:382px">
+    <div data-asset="cast_locked_lump_b">
+      <svg viewBox="0 0 66 64" width="66" height="64">
+        <polygon points="12,58 4,30 22,8 48,8 62,28 52,58" fill="#5A4A3E" stroke="#9A8776" stroke-width="3.5"/>
+        <polygon points="22,8 48,8 62,28 32,32" fill="#6E5B4C"/>
+        <path d="M23,26 L42,44 M42,26 L23,44" stroke="#C9B7A4" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+    </div><div class="nm micro">Vent 12</div>
+  </div>
+
+  <!-- ===== shelf 3 : five small casts (all locked) ===== -->
+  <div class="item lock" style="left:16px;top:540px">
+    <div><svg viewBox="0 0 56 54" width="56" height="54">
+      <polygon points="10,48 4,26 18,8 40,8 52,24 44,48" fill="#5A4A3E" stroke="#9A8776" stroke-width="3"/>
+      <path d="M19,22 L36,38 M36,22 L19,38" stroke="#C9B7A4" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="nm micro">13</div>
+  </div>
+  <div class="item lock" style="left:88px;top:536px">
+    <div><svg viewBox="0 0 56 58" width="56" height="58">
+      <polygon points="10,52 4,28 18,8 40,10 52,26 44,52" fill="#5A4A3E" stroke="#9A8776" stroke-width="3"/>
+      <path d="M19,24 L36,40 M36,24 L19,40" stroke="#C9B7A4" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="nm micro">16</div>
+  </div>
+  <div class="item lock" style="left:160px;top:542px">
+    <div><svg viewBox="0 0 56 52" width="56" height="52">
+      <polygon points="10,46 4,24 18,6 40,8 52,24 44,46" fill="#5A4A3E" stroke="#9A8776" stroke-width="3"/>
+      <path d="M19,21 L36,37 M36,21 L19,37" stroke="#C9B7A4" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="nm micro">19</div>
+  </div>
+  <div class="item lock" style="left:232px;top:538px">
+    <div><svg viewBox="0 0 56 56" width="56" height="56">
+      <polygon points="10,50 4,26 18,8 40,8 52,26 44,50" fill="#5A4A3E" stroke="#9A8776" stroke-width="3"/>
+      <path d="M19,23 L36,39 M36,23 L19,39" stroke="#C9B7A4" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="nm micro">22</div>
+  </div>
+  <div class="item lock" style="left:304px;top:534px">
+    <div><svg viewBox="0 0 60 60" width="60" height="60">
+      <polygon points="11,54 4,28 20,8 44,8 56,28 48,54" fill="#5A4A3E" stroke="#9A8776" stroke-width="3"/>
+      <path d="M21,25 L40,43 M40,25 L21,43" stroke="#C9B7A4" stroke-width="3" stroke-linecap="round"/></svg></div>
+    <div class="nm micro">24</div>
+  </div>
+
+  <!-- selected cast detail -->
+  <div class="detail">
+    <div data-asset="cast_detail_sulfurknot" style="flex:none">
+      <svg viewBox="0 0 70 70" width="70" height="70">
+        <polygon points="35,3 59,17 66,44 47,66 22,66 4,44 11,17" fill="#12383D" stroke="#2B0F08" stroke-width="3.5"/>
+        <polygon points="35,3 66,44 47,66 22,66" fill="#1E5A60"/>
+        <polygon points="35,15 52,43 35,58 20,43" fill="#FFC21A" stroke="#2B0F08" stroke-width="2.5"/>
+        <polygon points="35,24 44,42 35,51 27,42" fill="#FF5A1F"/>
+      </svg>
+    </div>
+    <div>
+      <h2>Sulfur Knot</h2>
+      <p>Cast at Vent 09 by filling all four molds without shutting a single vein twice.</p>
+      <div class="k micro">Rift I · 3 cast stars · Yield 100%</div>
+    </div>
+  </div>
+
+  <div class="sash">
+    <div class="in">
+      <div class="back" data-asset="btn_back_stone">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15,4 L7,12 L15,20" fill="none" stroke="#F2E7D8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h1>Obsidian <em>Casts</em></h1>
+        <div class="sub micro">Every vent leaves a shape</div>
+      </div>
+      <div class="cnt"><b>5/12</b><i>Cast</i></div>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</div></body></html>

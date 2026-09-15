@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0443D9D9A394ECC71D91A18E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABA498B2697E170941EC1EB /* Assets.xcassets */; };
+		08467389C971CD1AE4034518 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32156930950FB4314650B7E9 /* PersistenceController.swift */; };
+		08A8CEB3C5A44C0A3FA2B473 /* CastVaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F18FA298C6C1DE2CB7C57F /* CastVaultView.swift */; };
+		08C64B559AE2F4842FE8EA26 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295B703EDE12158A8F11A643 /* HomeView.swift */; };
+		098995366A3647F74D2F6BDD /* VolcVeinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CE2F0D8A6E1C943C44A576 /* VolcVeinApp.swift */; };
+		0A396B6D55EA9222928C10E5 /* VentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A824C442B4CCABACF4BCDDF6 /* VentView.swift */; };
+		143649AAE358A1163E3AF373 /* RiftDossierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CB79DAF717BFF158733697 /* RiftDossierView.swift */; };
+		2723B0B2AF0E71AC9F753444 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E995FDB963949E89622C1ED /* SplashView.swift */; };
+		3693386F1093BC9C6EC6B1E4 /* CastResultOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EF852946252958DC0D31BE /* CastResultOverlay.swift */; };
+		394B7D224B45F002F4D8926E /* VentCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF5AD4AFA1447F95F04AEE /* VentCatalog.swift */; };
+		3BDF341DD9FA15EE71C82F58 /* ValveHouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB792C914964A0745EE60020 /* ValveHouseView.swift */; };
+		3CAE12928B979A3E4BC96211 /* VentBriefOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B56F86B825AB2CEECDA3E45 /* VentBriefOverlay.swift */; };
+		4023DE7E9BFDC0F92579806D /* CalderaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1596DC489C3F3A8E1711366 /* CalderaView.swift */; };
+		4B77E6AB9AB6D6ECEFE80E99 /* GoutPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACBA32D220AFCBAEF63E7CE /* GoutPool.swift */; };
+		4BA4FE672FE144792B6955D0 /* ValveNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE505A57AC093A3392D66FD7 /* ValveNode.swift */; };
+		537A12BE6953C924640D0AFC /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3ECA242EEE30F8764E3681 /* Motion.swift */; };
+		56E184ED9347722A60B54AEF /* ScoreRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60C58A3ED430D49DC225A14 /* ScoreRules.swift */; };
+		5D10FBC9A0203A5A11F9B567 /* ProgressStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51715A9508C4D5396601EE0 /* ProgressStore.swift */; };
+		5F77642E564D1B74DC64EBBB /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92F0AFB93F7201F26DBA1FD /* GameState.swift */; };
+		6765A5E2D640C1458F208CF0 /* ContentCatalogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5E3A8F860F7EEEB510D515 /* ContentCatalogs.swift */; };
+		736813EDEA86411658246529 /* SeededRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A9409CECC6E636F780451D /* SeededRandom.swift */; };
+		75EFADB29BB9C4F8F3B7AF93 /* CrustClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9352E3960A0FE38966E8E9E /* CrustClock.swift */; };
+		90D262DBD2B50DB1030863BE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74F78408722DAAC03180CF /* GameScene.swift */; };
+		94B861AE41C5C29405945013 /* FlowSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B7D828589364CE459D5F03 /* FlowSolver.swift */; };
+		96E97B5882BE605B94B86320 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E92D6216585AC42DE6697 /* Haptics.swift */; };
+		997F5C80E2DA7D95F65B4F39 /* VigilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF51D8A6785DE55B72D91DE /* VigilView.swift */; };
+		9C05FD5C36F442513B798AA2 /* LedgerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5529351963FB2ADFE81DB2 /* LedgerView.swift */; };
+		A1723B3DC57DE7F482CC742A /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E77C1F453ADDE632D1D29B3 /* GameViewModel.swift */; };
+		A1E2946559D2CD08CCD452A0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65244B7CF6E6FC13321376A /* Theme.swift */; };
+		B4239E64385DE0AE4AD8AA1A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265A5360BCDB78F5C45A087E /* OnboardingView.swift */; };
+		BC9031363AB7DD0D053F1A04 /* Seeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F942D83F0197F98984E8B730 /* Seeder.swift */; };
+		BE2449F1F7CC696BF5954F1F /* PauseOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BAC270B9DE7C5223B68F6E /* PauseOverlay.swift */; };
+		C96F69BC4557F255C24DE4A9 /* MoldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BD1F56FC343EC4FF401E9F /* MoldNode.swift */; };
+		CCFCC939154E3189ECF536E8 /* MarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F559AAA300D70445BDEF7D6 /* MarksView.swift */; };
+		D0EE7A3A35ACD088911B751E /* VeinNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4110636482B28060D8B8CFF /* VeinNode.swift */; };
+		D3B2E7332031D0800105F67C /* CastDetailOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197C221B9D805239DAC59DEE /* CastDetailOverlay.swift */; };
+		DB33DA38C4ABB7C41BCC4AF8 /* PrintComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892C0DCABFE02A9B05930AD5 /* PrintComponents.swift */; };
+		DDE0E4B4519520AF385CF9CA /* RiftMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF956296362538D2756AF7E3 /* RiftMapView.swift */; };
+		E28FBCD1F29B01ABA0FD2725 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24935C98068E02DBC1AB9524 /* PhysicsCategory.swift */; };
+		F8497F9568F1EC595DFF33FA /* VolcVein.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 258078F4B5B0A017FDE3C57E /* VolcVein.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		001E92D6216585AC42DE6697 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		06EF852946252958DC0D31BE /* CastResultOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResultOverlay.swift; sourceTree = "<group>"; };
+		07A9409CECC6E636F780451D /* SeededRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeededRandom.swift; sourceTree = "<group>"; };
+		197C221B9D805239DAC59DEE /* CastDetailOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastDetailOverlay.swift; sourceTree = "<group>"; };
+		24935C98068E02DBC1AB9524 /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
+		265A5360BCDB78F5C45A087E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		295B703EDE12158A8F11A643 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2C5529351963FB2ADFE81DB2 /* LedgerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerView.swift; sourceTree = "<group>"; };
+		2F559AAA300D70445BDEF7D6 /* MarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarksView.swift; sourceTree = "<group>"; };
+		32156930950FB4314650B7E9 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		3DF51D8A6785DE55B72D91DE /* VigilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VigilView.swift; sourceTree = "<group>"; };
+		3E995FDB963949E89622C1ED /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		3FD50C6CA0DC9A45164E304B /* VolcVein.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VolcVein.xcdatamodel; sourceTree = "<group>"; };
+		53BD1F56FC343EC4FF401E9F /* MoldNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoldNode.swift; sourceTree = "<group>"; };
+		57CB79DAF717BFF158733697 /* RiftDossierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiftDossierView.swift; sourceTree = "<group>"; };
+		5ACBA32D220AFCBAEF63E7CE /* GoutPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoutPool.swift; sourceTree = "<group>"; };
+		5E77C1F453ADDE632D1D29B3 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		66CE2F0D8A6E1C943C44A576 /* VolcVeinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolcVeinApp.swift; sourceTree = "<group>"; };
+		6B56F86B825AB2CEECDA3E45 /* VentBriefOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentBriefOverlay.swift; sourceTree = "<group>"; };
+		74B7D828589364CE459D5F03 /* FlowSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSolver.swift; sourceTree = "<group>"; };
+		892C0DCABFE02A9B05930AD5 /* PrintComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintComponents.swift; sourceTree = "<group>"; };
+		8F539CCA3941DE29D48D317E /* VolcVein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolcVein.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CF5AD4AFA1447F95F04AEE /* VentCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentCatalog.swift; sourceTree = "<group>"; };
+		98F18FA298C6C1DE2CB7C57F /* CastVaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastVaultView.swift; sourceTree = "<group>"; };
+		A51715A9508C4D5396601EE0 /* ProgressStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStore.swift; sourceTree = "<group>"; };
+		A65244B7CF6E6FC13321376A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A824C442B4CCABACF4BCDDF6 /* VentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentView.swift; sourceTree = "<group>"; };
+		AC74F78408722DAAC03180CF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		AE505A57AC093A3392D66FD7 /* ValveNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValveNode.swift; sourceTree = "<group>"; };
+		B1596DC489C3F3A8E1711366 /* CalderaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalderaView.swift; sourceTree = "<group>"; };
+		B4110636482B28060D8B8CFF /* VeinNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeinNode.swift; sourceTree = "<group>"; };
+		C60C58A3ED430D49DC225A14 /* ScoreRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRules.swift; sourceTree = "<group>"; };
+		CABA498B2697E170941EC1EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF956296362538D2756AF7E3 /* RiftMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiftMapView.swift; sourceTree = "<group>"; };
+		D92F0AFB93F7201F26DBA1FD /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		D9352E3960A0FE38966E8E9E /* CrustClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrustClock.swift; sourceTree = "<group>"; };
+		DB3ECA242EEE30F8764E3681 /* Motion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
+		DB792C914964A0745EE60020 /* ValveHouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValveHouseView.swift; sourceTree = "<group>"; };
+		DF5E3A8F860F7EEEB510D515 /* ContentCatalogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCatalogs.swift; sourceTree = "<group>"; };
+		F7BAC270B9DE7C5223B68F6E /* PauseOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseOverlay.swift; sourceTree = "<group>"; };
+		F942D83F0197F98984E8B730 /* Seeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seeder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BBE98DFC7989C50287CD585 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04925F494B4D056BEA0CD44B /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				32156930950FB4314650B7E9 /* PersistenceController.swift */,
+				A51715A9508C4D5396601EE0 /* ProgressStore.swift */,
+				F942D83F0197F98984E8B730 /* Seeder.swift */,
+				258078F4B5B0A017FDE3C57E /* VolcVein.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		3496FF6D3697A93A4B7BC0A2 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				5ACBA32D220AFCBAEF63E7CE /* GoutPool.swift */,
+				53BD1F56FC343EC4FF401E9F /* MoldNode.swift */,
+				AE505A57AC093A3392D66FD7 /* ValveNode.swift */,
+				B4110636482B28060D8B8CFF /* VeinNode.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		47137A84EDE748E23F610F93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F539CCA3941DE29D48D317E /* VolcVein.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6579C618AEEACCCCD712A1CA /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				DF5E3A8F860F7EEEB510D515 /* ContentCatalogs.swift */,
+				D9352E3960A0FE38966E8E9E /* CrustClock.swift */,
+				74B7D828589364CE459D5F03 /* FlowSolver.swift */,
+				C60C58A3ED430D49DC225A14 /* ScoreRules.swift */,
+				07A9409CECC6E636F780451D /* SeededRandom.swift */,
+				96CF5AD4AFA1447F95F04AEE /* VentCatalog.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		6A5F2388028A9D213AC352ED /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				001E92D6216585AC42DE6697 /* Haptics.swift */,
+				DB3ECA242EEE30F8764E3681 /* Motion.swift */,
+				892C0DCABFE02A9B05930AD5 /* PrintComponents.swift */,
+				A65244B7CF6E6FC13321376A /* Theme.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		73861057AD2581FAE11AC5CA /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				AC74F78408722DAAC03180CF /* GameScene.swift */,
+				D92F0AFB93F7201F26DBA1FD /* GameState.swift */,
+				5E77C1F453ADDE632D1D29B3 /* GameViewModel.swift */,
+				24935C98068E02DBC1AB9524 /* PhysicsCategory.swift */,
+				3496FF6D3697A93A4B7BC0A2 /* Entities */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		9B89292097F32ABFDD5C5512 = {
+			isa = PBXGroup;
+			children = (
+				FC632BC819B0CC37FBDD21CC /* VolcVein */,
+				47137A84EDE748E23F610F93 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B167A55322CCF886DCCD28B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CABA498B2697E170941EC1EB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C38B0AFE1855C79A07BA8054 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1596DC489C3F3A8E1711366 /* CalderaView.swift */,
+				197C221B9D805239DAC59DEE /* CastDetailOverlay.swift */,
+				06EF852946252958DC0D31BE /* CastResultOverlay.swift */,
+				98F18FA298C6C1DE2CB7C57F /* CastVaultView.swift */,
+				2C5529351963FB2ADFE81DB2 /* LedgerView.swift */,
+				2F559AAA300D70445BDEF7D6 /* MarksView.swift */,
+				265A5360BCDB78F5C45A087E /* OnboardingView.swift */,
+				F7BAC270B9DE7C5223B68F6E /* PauseOverlay.swift */,
+				57CB79DAF717BFF158733697 /* RiftDossierView.swift */,
+				CF956296362538D2756AF7E3 /* RiftMapView.swift */,
+				3E995FDB963949E89622C1ED /* SplashView.swift */,
+				DB792C914964A0745EE60020 /* ValveHouseView.swift */,
+				6B56F86B825AB2CEECDA3E45 /* VentBriefOverlay.swift */,
+				A824C442B4CCABACF4BCDDF6 /* VentView.swift */,
+				3DF51D8A6785DE55B72D91DE /* VigilView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FC632BC819B0CC37FBDD21CC /* VolcVein */ = {
+			isa = PBXGroup;
+			children = (
+				295B703EDE12158A8F11A643 /* HomeView.swift */,
+				66CE2F0D8A6E1C943C44A576 /* VolcVeinApp.swift */,
+				73861057AD2581FAE11AC5CA /* Game */,
+				6579C618AEEACCCCD712A1CA /* Logic */,
+				04925F494B4D056BEA0CD44B /* Persistence */,
+				B167A55322CCF886DCCD28B0 /* Resources */,
+				6A5F2388028A9D213AC352ED /* Support */,
+				C38B0AFE1855C79A07BA8054 /* Views */,
+			);
+			path = VolcVein;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F98E46073FF92C1C7A2E016C /* VolcVein */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5C05BD931C6579DB30837BA /* Build configuration list for PBXNativeTarget "VolcVein" */;
+			buildPhases = (
+				BD83227D976F207AEA03A8A6 /* Sources */,
+				C002692151B921CBFF382922 /* Resources */,
+				3BBE98DFC7989C50287CD585 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VolcVein;
+			packageProductDependencies = (
+			);
+			productName = VolcVein;
+			productReference = 8F539CCA3941DE29D48D317E /* VolcVein.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB0A85351ABE33F175B9FC6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+			};
+			buildConfigurationList = A2CFBB4D0B64162CCA1D349A /* Build configuration list for PBXProject "VolcVein" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9B89292097F32ABFDD5C5512;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 47137A84EDE748E23F610F93 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F98E46073FF92C1C7A2E016C /* VolcVein */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C002692151B921CBFF382922 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0443D9D9A394ECC71D91A18E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD83227D976F207AEA03A8A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4023DE7E9BFDC0F92579806D /* CalderaView.swift in Sources */,
+				D3B2E7332031D0800105F67C /* CastDetailOverlay.swift in Sources */,
+				3693386F1093BC9C6EC6B1E4 /* CastResultOverlay.swift in Sources */,
+				08A8CEB3C5A44C0A3FA2B473 /* CastVaultView.swift in Sources */,
+				6765A5E2D640C1458F208CF0 /* ContentCatalogs.swift in Sources */,
+				75EFADB29BB9C4F8F3B7AF93 /* CrustClock.swift in Sources */,
+				94B861AE41C5C29405945013 /* FlowSolver.swift in Sources */,
+				90D262DBD2B50DB1030863BE /* GameScene.swift in Sources */,
+				5F77642E564D1B74DC64EBBB /* GameState.swift in Sources */,
+				A1723B3DC57DE7F482CC742A /* GameViewModel.swift in Sources */,
+				4B77E6AB9AB6D6ECEFE80E99 /* GoutPool.swift in Sources */,
+				96E97B5882BE605B94B86320 /* Haptics.swift in Sources */,
+				08C64B559AE2F4842FE8EA26 /* HomeView.swift in Sources */,
+				9C05FD5C36F442513B798AA2 /* LedgerView.swift in Sources */,
+				CCFCC939154E3189ECF536E8 /* MarksView.swift in Sources */,
+				C96F69BC4557F255C24DE4A9 /* MoldNode.swift in Sources */,
+				537A12BE6953C924640D0AFC /* Motion.swift in Sources */,
+				B4239E64385DE0AE4AD8AA1A /* OnboardingView.swift in Sources */,
+				BE2449F1F7CC696BF5954F1F /* PauseOverlay.swift in Sources */,
+				08467389C971CD1AE4034518 /* PersistenceController.swift in Sources */,
+				E28FBCD1F29B01ABA0FD2725 /* PhysicsCategory.swift in Sources */,
+				DB33DA38C4ABB7C41BCC4AF8 /* PrintComponents.swift in Sources */,
+				5D10FBC9A0203A5A11F9B567 /* ProgressStore.swift in Sources */,
+				143649AAE358A1163E3AF373 /* RiftDossierView.swift in Sources */,
+				DDE0E4B4519520AF385CF9CA /* RiftMapView.swift in Sources */,
+				56E184ED9347722A60B54AEF /* ScoreRules.swift in Sources */,
+				736813EDEA86411658246529 /* SeededRandom.swift in Sources */,
+				BC9031363AB7DD0D053F1A04 /* Seeder.swift in Sources */,
+				2723B0B2AF0E71AC9F753444 /* SplashView.swift in Sources */,
+				A1E2946559D2CD08CCD452A0 /* Theme.swift in Sources */,
+				3BDF341DD9FA15EE71C82F58 /* ValveHouseView.swift in Sources */,
+				4BA4FE672FE144792B6955D0 /* ValveNode.swift in Sources */,
+				D0EE7A3A35ACD088911B751E /* VeinNode.swift in Sources */,
+				3CAE12928B979A3E4BC96211 /* VentBriefOverlay.swift in Sources */,
+				394B7D224B45F002F4D8926E /* VentCatalog.swift in Sources */,
+				0A396B6D55EA9222928C10E5 /* VentView.swift in Sources */,
+				997F5C80E2DA7D95F65B4F39 /* VigilView.swift in Sources */,
+				F8497F9568F1EC595DFF33FA /* VolcVein.xcdatamodeld in Sources */,
+				098995366A3647F74D2F6BDD /* VolcVeinApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		32ADDA0ACEB29D46235E2FBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Volc Vein";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.volcvein;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		439CAF6906DEC4FC4411885C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		94F35C1BAF57702780A5C842 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Volc Vein";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.volcvein;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CB7CB21D0F495941400F1785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A2CFBB4D0B64162CCA1D349A /* Build configuration list for PBXProject "VolcVein" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB7CB21D0F495941400F1785 /* Debug */,
+				439CAF6906DEC4FC4411885C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F5C05BD931C6579DB30837BA /* Build configuration list for PBXNativeTarget "VolcVein" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94F35C1BAF57702780A5C842 /* Debug */,
+				32ADDA0ACEB29D46235E2FBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		258078F4B5B0A017FDE3C57E /* VolcVein.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3FD50C6CA0DC9A45164E304B /* VolcVein.xcdatamodel */,
+			);
+			currentVersion = 3FD50C6CA0DC9A45164E304B /* VolcVein.xcdatamodel */;
+			path = VolcVein.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BB0A85351ABE33F175B9FC6D /* Project object */;
+}

@@ -1,0 +1,13 @@
+# Xcode build output
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+
+# SwiftPM
+.build/
+.swiftpm/
+
+# macOS / tooling noise
+.DS_Store
+.claude_stderr.log

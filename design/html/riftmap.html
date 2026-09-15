@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>VolcVein — Rift Map</title>
+<style>
+:root{--magma:#FF5A1F;--magma-hot:#FF8A2B;--magma-core:#FFD07A;--sulfur:#FFC21A;--sulfur-deep:#D99200;
+--ink:#2B0F08;--rock-deep:#5A1E0C;--rock:#8C3410;--rock-lit:#B8471A;--ash:#F2E7D8;--ash-mid:#C9B7A4;
+--ash-deep:#9A8776;--obsidian:#12383D;--obsidian-lit:#1E5A60;--danger:#C22A12;
+--display:"Avenir Next Condensed","Futura",sans-serif;--body:"Avenir Next","Helvetica Neue",sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body{width:390px;height:844px;overflow:hidden}
+body{font-family:var(--body);background:var(--rock-deep);color:var(--ash);position:relative}
+.screen{position:absolute;inset:0;overflow:hidden}
+.grain{position:absolute;inset:-24px;pointer-events:none;mix-blend-mode:multiply;opacity:.22;z-index:95;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");background-size:140px 140px}
+.micro{font-family:var(--display);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.rockbg{position:absolute;inset:0;background:linear-gradient(172deg,#A8400F 0%,#7A2A0B 40%,#571C08 74%,#3E1306 100%)}
+.rockbg:after{content:"";position:absolute;inset:0;
+ background-image:radial-gradient(circle at 50% 50%, rgba(255,120,40,.26) 1.1px, transparent 1.35px);background-size:5px 5px}
+
+.sash{position:absolute;left:0;right:0;top:0;height:124px;z-index:40;background:var(--ink);
+ clip-path:polygon(0 0,100% 0,100% 100%,0 88%);box-shadow:0 12px 24px rgba(43,15,8,.5)}
+.sash .in{position:absolute;left:14px;right:14px;top:50px;display:flex;align-items:center;gap:12px}
+.back{width:44px;height:44px;flex:none;background:var(--rock);border:3px solid var(--ash-mid);
+ display:flex;align-items:center;justify-content:center}
+.sash h1{font-family:var(--display);font-weight:800;font-size:30px;line-height:.96;letter-spacing:-.01em;
+ text-transform:uppercase;color:var(--ash)}
+.sash h1 em{font-style:normal;color:var(--sulfur)}
+.sash .sub{color:var(--ash-deep);margin-top:4px}
+.sash .cnt{margin-left:auto;text-align:right;flex:none}
+.sash .cnt b{display:block;font-family:var(--display);font-weight:800;font-size:28px;color:var(--sulfur);line-height:.9}
+.sash .cnt i{font-style:normal;color:var(--ash-deep);font-family:var(--display);font-weight:800;
+ font-size:9px;letter-spacing:.16em;text-transform:uppercase}
+
+.map{position:absolute;left:0;top:104px;width:390px;height:760px;z-index:10}
+
+.band{position:absolute;left:0;right:0;z-index:22;display:flex;align-items:center;gap:8px;padding:0 14px}
+.band .line{flex:1;height:3px;background:repeating-linear-gradient(90deg,var(--ash-deep) 0 9px,transparent 9px 16px)}
+.band .tag{background:var(--ash);color:var(--ink);padding:4px 10px;flex:none;
+ box-shadow:0 3px 0 rgba(43,15,8,.5)}
+.band.locked .tag{background:var(--obsidian);color:var(--ash-mid)}
+.b3{top:336px}
+.b2{top:674px}
+.b1{top:800px}
+
+.node{position:absolute;z-index:26;white-space:nowrap}
+.node .plate{background:var(--ink);color:var(--ash);padding:3px 7px;margin-top:5px;display:inline-block;
+ box-shadow:0 2px 0 rgba(0,0,0,.45)}
+.now{position:absolute;z-index:30;background:var(--sulfur);color:var(--ink);padding:3px 8px;
+ transform:rotate(-6deg);box-shadow:0 3px 0 var(--sulfur-deep)}
+</style></head>
+<body><div class="screen">
+  <div class="rockbg"></div>
+
+  <!-- the rift: a vein climbing the cross-section -->
+  <svg class="map" viewBox="0 0 390 760" width="390" height="760">
+    <g stroke="#C9531F" stroke-width="3" fill="none" opacity=".3">
+      <path d="M-10,120 C90,96 170,116 250,92 C320,72 360,86 400,76"/>
+      <path d="M-10,272 C90,250 170,268 250,246 C320,226 360,240 400,230"/>
+      <path d="M-10,424 C90,402 170,420 250,398 C320,378 360,392 400,382"/>
+      <path d="M-10,576 C90,554 170,572 250,550 C320,530 360,544 400,534"/>
+      <path d="M-10,700 C90,678 170,696 250,674 C320,654 360,668 400,658"/>
+    </g>
+
+    <!-- chamber glow at the foot -->
+    <ellipse cx="196" cy="762" rx="180" ry="56" fill="#B8471A" opacity=".65"/>
+    <ellipse cx="196" cy="768" rx="140" ry="40" fill="#FF7A2E" opacity=".8"/>
+
+    <!-- vein trunk, bottom -> top -->
+    <g fill="none" stroke="#2B0F08" stroke-width="20" stroke-linecap="round">
+      <path d="M196,740 C214,688 154,656 128,614 C104,574 152,540 190,506
+               C232,470 172,430 132,394 C96,362 148,326 198,296
+               C246,266 202,222 176,186"/>
+    </g>
+    <path d="M196,740 C214,688 154,656 128,614 C104,574 152,540 190,506
+             C232,470 172,430 132,394 C96,362 148,326 198,296"
+          fill="none" stroke="#FF5A1F" stroke-width="11" stroke-linecap="round"/>
+    <path d="M196,740 C214,688 154,656 128,614 C104,574 152,540 190,506
+             C232,470 172,430 132,394 C96,362 148,326 198,296"
+          fill="none" stroke="#FFE2A6" stroke-width="3" stroke-linecap="round" opacity=".9"/>
+    <path d="M198,296 C246,266 202,222 176,186"
+          fill="none" stroke="#12383D" stroke-width="11" stroke-linecap="round" stroke-dasharray="13 9"/>
+
+    <g fill="#FFF6D8" opacity=".9">
+      <circle cx="176" cy="706" r="3.5"/><circle cx="136" cy="640" r="3"/><circle cx="164" cy="524" r="3.5"/>
+      <circle cx="166" cy="416" r="3"/><circle cx="160" cy="336" r="3.5"/>
+    </g>
+
+    <!-- ===== node art ===== -->
+    <!-- cleared node 07 (current) -->
+    <g><polygon points="190,478 216,493 216,521 190,536 164,521 164,493" fill="#FFC21A" stroke="#2B0F08" stroke-width="5"/>
+       <circle cx="190" cy="507" r="11" fill="#FF5A1F" stroke="#2B0F08" stroke-width="4"/></g>
+    <!-- cleared 06 -->
+    <g><polygon points="128,588 152,602 152,628 128,642 104,628 104,602" fill="#FF7A2E" stroke="#2B0F08" stroke-width="5"/>
+       <circle cx="128" cy="615" r="9" fill="#FFE2A6" stroke="#2B0F08" stroke-width="3.5"/></g>
+    <!-- cleared 05 -->
+    <g><polygon points="196,714 220,728 220,754 196,768 172,754 172,728" fill="#FF7A2E" stroke="#2B0F08" stroke-width="5"/>
+       <circle cx="196" cy="741" r="9" fill="#FFE2A6" stroke="#2B0F08" stroke-width="3.5"/></g>
+    <!-- locked 08 -->
+    <g><polygon points="132,366 156,380 156,406 132,420 108,406 108,380" fill="#12383D" stroke="#C9B7A4" stroke-width="4"/>
+       <path d="M122,384 L142,402 M142,384 L122,402" stroke="#C9B7A4" stroke-width="4" stroke-linecap="round"/></g>
+    <!-- locked 09 -->
+    <g><polygon points="198,268 222,282 222,308 198,322 174,308 174,282" fill="#12383D" stroke="#C9B7A4" stroke-width="4"/>
+       <path d="M188,286 L208,304 M208,286 L188,304" stroke="#C9B7A4" stroke-width="4" stroke-linecap="round"/></g>
+    <!-- locked next rift -->
+    <g opacity=".8"><polygon points="176,158 198,171 198,195 176,208 154,195 154,171" fill="#12383D" stroke="#9A8776" stroke-width="4"/>
+       <path d="M167,175 L185,191 M185,175 L167,191" stroke="#9A8776" stroke-width="3.5" stroke-linecap="round"/></g>
+
+    <!-- cast stars earned -->
+    <g fill="#FFC21A" stroke="#2B0F08" stroke-width="2">
+      <polygon points="176,540 181,550 191,550 183,557 186,567 176,561 166,567 169,557 161,550 171,550"/>
+      <polygon points="196,540 201,550 211,550 203,557 206,567 196,561 186,567 189,557 181,550 191,550"/>
+      <polygon points="216,540 221,550 231,550 223,557 226,567 216,561 206,567 209,557 201,550 211,550" fill="#5A1E0C"/>
+    </g>
+    <g fill="#FFC21A" stroke="#2B0F08" stroke-width="2">
+      <polygon points="112,664 117,674 127,674 119,681 122,691 112,685 102,691 105,681 97,674 107,674"/>
+      <polygon points="132,664 137,674 147,674 139,681 142,691 132,685 122,691 125,681 117,674 127,674"/>
+      <polygon points="152,664 157,674 167,674 159,681 162,691 152,685 142,691 145,681 137,674 147,674"/>
+    </g>
+  </svg>
+
+  <!-- node labels -->
+  <div class="node" style="left:52px;top:596px"><span class="plate micro">Vent 07 · Live</span></div>
+  <div class="node" style="left:166px;top:706px"><span class="plate micro">Vent 06</span></div>
+  <div class="node" style="left:240px;top:824px"><span class="plate micro">Vent 05</span></div>
+  <div class="node" style="left:170px;top:484px"><span class="plate micro">Vent 08</span></div>
+  <div class="node" style="left:232px;top:384px"><span class="plate micro">Vent 09</span></div>
+  <div class="now micro" style="left:244px;top:594px">Tap to enter</div>
+  <div class="node" style="left:216px;top:276px"><span class="plate micro">Sealed · clear Rift II</span></div>
+
+  <!-- rift bands -->
+  <div class="band b3 locked"><div class="line"></div><div class="tag micro">Rift III · Ashfall Reach</div><div class="line"></div></div>
+  <div class="band b2"><div class="line"></div><div class="tag micro">Rift II · Cinder Steps</div><div class="line"></div></div>
+  <div class="band b1"><div class="line"></div><div class="tag micro">Rift I · Emberfoot · cleared</div><div class="line"></div></div>
+
+  <div class="sash">
+    <div class="in">
+      <div class="back" data-asset="btn_back_stone">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15,4 L7,12 L15,20" fill="none" stroke="#F2E7D8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h1>Rift <em>Map</em></h1>
+        <div class="sub micro">Four rifts · twenty-four vents</div>
+      </div>
+      <div class="cnt"><b>9/24</b><i>Vents cast</i></div>
+    </div>
+  </div>
+
+  <div class="grain"></div>
+</div></body></html>
