@@ -203,26 +203,37 @@ struct CalderaView: View {
 
     // MARK: - Rank
 
+    /// Tappable like the chamber wall: the rank and its star track are the
+    /// Ledger's rank card in miniature, so the plate opens it.
     private var rankPlate: some View {
-        VStack(alignment: .trailing, spacing: 3) {
-            Text(stats.rank.title)
-                .font(VV.display(17))
-                .textCase(.uppercase)
-                .foregroundStyle(VV.ash)
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-            Text("\(stats.totalStars)★ of \(stats.starsTotal)").microLabel(VV.magmaCore)
-            RuleBar(fraction: Double(stats.totalStars) / Double(max(stats.starsTotal, 1)),
-                    fill: VV.sulfur, height: 5)
-                .frame(width: 104)
+        Button(action: onLedger) {
+            VStack(alignment: .trailing, spacing: 3) {
+                HStack(spacing: 4) {
+                    Text(stats.rank.title)
+                        .font(VV.display(17))
+                        .textCase(.uppercase)
+                        .foregroundStyle(VV.ash)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
+                    Text("\u{203A}")
+                        .font(VV.display(17))
+                        .foregroundStyle(VV.sulfur)
+                }
+                Text("\(stats.totalStars)★ of \(stats.starsTotal)").microLabel(VV.magmaCore)
+                RuleBar(fraction: Double(stats.totalStars) / Double(max(stats.starsTotal, 1)),
+                        fill: VV.sulfur, height: 5)
+                    .frame(width: 104)
+            }
+            .padding(.horizontal, 11)
+            .padding(.vertical, 8)
+            .background(VV.ink.opacity(0.92))
+            .overlay(alignment: .trailing) { Rectangle().fill(VV.sulfur).frame(width: 4) }
+            .compositingGroup()
+            .shadow(color: .black.opacity(0.45), radius: 0, y: 4)
+            .frame(maxWidth: 156)
         }
-        .padding(.horizontal, 11)
-        .padding(.vertical, 8)
-        .background(VV.ink.opacity(0.92))
-        .overlay(alignment: .trailing) { Rectangle().fill(VV.sulfur).frame(width: 4) }
-        .compositingGroup()
-        .shadow(color: .black.opacity(0.45), radius: 0, y: 4)
-        .frame(maxWidth: 156)
+        .buttonStyle(PressPlateStyle(scale: 0.97))
+        .accessibilityLabel("\(stats.rank.title), \(stats.totalStars) of \(stats.starsTotal) cast stars. Opens the ledger.")
     }
 
     // MARK: - Chamber wall
