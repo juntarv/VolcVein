@@ -122,9 +122,10 @@ struct AshGrain: View {
 
 /// The skewed ink band every secondary screen wears.
 struct HeaderSash<Trailing: View>: View {
-    /// Chrome height plus the top safe area, so screens can reserve exactly the
-    /// room the sash occupies.
-    static func height(safeTop: CGFloat) -> CGFloat { 78 + safeTop }
+    /// The room the sash asks its screen for. The ink also bleeds up behind the
+    /// status bar and the Dynamic Island, but that is drawn rather than laid
+    /// out — the chrome itself starts inside the safe area.
+    static var height: CGFloat { 78 }
 
     @Environment(\.safeTop) private var safeTop
 
@@ -138,6 +139,9 @@ struct HeaderSash<Trailing: View>: View {
         ZStack(alignment: .topLeading) {
             SashShape()
                 .fill(VV.ink)
+                // Negative inset: the band paints up under the status bar
+                // without asking the screen for that height twice.
+                .padding(.top, -safeTop)
                 .shadow(color: VV.ink.opacity(0.5), radius: 12, y: 6)
             HStack(alignment: .center, spacing: VV.s3) {
                 if let onBack {
@@ -175,9 +179,9 @@ struct HeaderSash<Trailing: View>: View {
                 trailing
             }
             .padding(.horizontal, 14)
-            .padding(.top, 4 + safeTop)
+            .padding(.top, 4)
         }
-        .frame(height: Self.height(safeTop: safeTop))
+        .frame(height: Self.height)
     }
 }
 
@@ -216,11 +220,9 @@ extension View {
 }
 
 private struct BelowSash: ViewModifier {
-    @Environment(\.safeTop) private var safeTop
-
     func body(content: Content) -> some View {
         VStack(spacing: 0) {
-            Color.clear.frame(height: HeaderSash<EmptyView>.height(safeTop: safeTop))
+            Color.clear.frame(height: HeaderSash<EmptyView>.height)
             content.clipped()
         }
     }
@@ -406,6 +408,55 @@ struct StonePlate: View {
             .shadow(color: .black.opacity(0.3), radius: 10, y: 6)
         }
         .buttonStyle(PressPlateStyle())
+    }
+}
+
+/// A two-way ask, cut from the same stone as everything else. Used where one
+/// tap would throw away a run that is still in progress — the safe way out is
+/// the plate that reads loudest, and the scrim takes a tap as "no".
+struct ConfirmPlate: View {
+    let title: String
+    let message: String
+    let confirmTitle: String
+    var confirmIcon: String = "exclamationmark.triangle"
+    let onConfirm: () -> Void
+    let onCancel: () -> Void
+
+    var body: some View {
+        ZStack {
+            VV.scrim
+                .ignoresSafeArea()
+                .contentShape(Rectangle())
+                .onTapGesture(perform: onCancel)
+
+            VStack(alignment: .leading, spacing: VV.s3) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(title)
+                        .font(VV.display(28))
+                        .textCase(.uppercase)
+                        .foregroundStyle(VV.ash)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(message)
+                        .font(VV.body(13))
+                        .foregroundStyle(VV.ashMid)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                FissurePlate(title: "Keep going", height: 64, titleSize: 28, action: onCancel)
+                StonePlate(title: confirmTitle, systemIcon: confirmIcon,
+                           underline: VV.danger, height: 52, action: onConfirm)
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 22)
+            .background(Color(hex: 0x1C0904).opacity(0.96))
+            .overlay(alignment: .leading) { Rectangle().fill(VV.danger).frame(width: 5) }
+            .compositingGroup()
+            .shadow(color: .black.opacity(0.5), radius: 0, y: 6)
+            .shadow(color: .black.opacity(0.45), radius: 22, y: 14)
+            .padding(.horizontal, VV.s4)
+            .vvEntrance(0)
+        }
     }
 }
 

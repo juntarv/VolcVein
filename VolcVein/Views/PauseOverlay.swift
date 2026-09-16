@@ -6,6 +6,14 @@ struct PauseOverlay: View {
     @ObservedObject var vm: GameViewModel
     let onLeave: () -> Void
 
+    /// Both ways out of a held run throw away everything cast so far, so
+    /// neither fires on the first tap.
+    private enum Exit: Identifiable {
+        case restart, leave
+        var id: Int { self == .restart ? 0 : 1 }
+    }
+    @State private var pendingExit: Exit?
+
     var body: some View {
         ZStack {
             VV.scrim.ignoresSafeArea()
@@ -33,6 +41,37 @@ struct PauseOverlay: View {
                         .vvEntrance(2)
                 }
             }
+
+            if let exit = pendingExit {
+                confirm(exit).transition(.opacity)
+            }
+        }
+        .animation(Motion.ease(0.2), value: pendingExit?.id)
+    }
+
+    @ViewBuilder
+    private func confirm(_ exit: Exit) -> some View {
+        switch exit {
+        case .restart:
+            ConfirmPlate(title: "Restart this vent?",
+                         message: "The molds you have filled and the score on them are poured out. The vent starts cold again.",
+                         confirmTitle: "Restart vent",
+                         confirmIcon: "arrow.counterclockwise",
+                         onConfirm: {
+                             pendingExit = nil
+                             vm.restart()
+                         },
+                         onCancel: { pendingExit = nil })
+        case .leave:
+            ConfirmPlate(title: "Leave to the caldera?",
+                         message: "This descent is abandoned. Nothing from it is written to the ledger.",
+                         confirmTitle: "Leave the vent",
+                         confirmIcon: "triangle",
+                         onConfirm: {
+                             pendingExit = nil
+                             onLeave()
+                         },
+                         onCancel: { pendingExit = nil })
         }
     }
 
@@ -140,13 +179,13 @@ struct PauseOverlay: View {
             StonePlate(title: "Restart vent",
                        systemIcon: "arrow.counterclockwise",
                        height: compact ? 50 : 56) {
-                vm.restart()
+                pendingExit = .restart
             }
             StonePlate(title: "Leave to caldera",
                        systemIcon: "triangle",
                        underline: VV.magma,
                        height: compact ? 50 : 56) {
-                onLeave()
+                pendingExit = .leave
             }
         }
     }

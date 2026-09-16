@@ -6,7 +6,6 @@ import SwiftUI
 /// readable element as a SwiftUI overlay on top of it.
 struct VentView: View {
     @Environment(\.managedObjectContext) private var ctx
-    @Environment(\.safeTop) private var safeTop
 
     let startingVent: Int
     /// Non-nil when this run is the Daily Fissure rather than a numbered vent.
@@ -78,7 +77,7 @@ struct VentView: View {
             }
         }
         .padding(.horizontal, 12)
-        .padding(.top, safeTop)
+        .padding(.top, VV.s1)
         .padding(.bottom, 10)
         .animation(Motion.ease(0.3), value: vm.hintVisible)
         .animation(Motion.ease(0.2), value: vm.chokeWarning > 0)
@@ -103,25 +102,27 @@ struct VentView: View {
             .accessibilityLabel("Pause")
 
             HStack(spacing: 10) {
+                // The name block is the one compressible thing in the bar: the
+                // chips and the score are live readouts and hold their size, so
+                // a six-mold vent with a long rift name shortens the title
+                // rather than pushing the whole screen off to the right.
                 VStack(alignment: .leading, spacing: 1) {
                     Text(vm.runTitle)
                         .font(VV.display(22))
                         .foregroundStyle(vm.isDaily ? VV.magma : VV.ink)
                         .lineLimit(1)
-                        .minimumScaleFactor(0.7)
+                        .minimumScaleFactor(0.55)
                     Text(vm.isDaily ? "Daily fissure · \(vm.riftName2)" : "Rift \(vm.riftNumeral) · \(vm.riftName)")
                         .font(VV.display(9))
                         .tracking(1.1)
                         .textCase(.uppercase)
                         .foregroundStyle(VV.paperText2)
                         .lineLimit(1)
-                        .minimumScaleFactor(0.7)
+                        .minimumScaleFactor(0.55)
                 }
-                .fixedSize(horizontal: true, vertical: false)
+                .frame(maxWidth: .infinity, alignment: .leading)
 
-                Spacer(minLength: 4)
-
-                HStack(spacing: 4) {
+                HStack(spacing: chipGap) {
                     ForEach(vm.moldFills.indices, id: \.self) { i in
                         moldChip(index: i)
                     }
@@ -129,6 +130,7 @@ struct VentView: View {
                 .padding(.horizontal, 8)
                 .overlay(alignment: .leading) { chipRule }
                 .overlay(alignment: .trailing) { chipRule }
+                .layoutPriority(1)
 
                 VStack(alignment: .trailing, spacing: 1) {
                     Text(vm.score.castFormatted)
@@ -145,6 +147,7 @@ struct VentView: View {
                         .foregroundStyle(VV.paperText2)
                 }
                 .fixedSize(horizontal: true, vertical: false)
+                .layoutPriority(1)
             }
             .padding(.horizontal, 12)
             .frame(height: 58)
@@ -156,6 +159,11 @@ struct VentView: View {
             .shadow(color: VV.ink.opacity(0.35), radius: 12, y: 8)
         }
     }
+
+    /// Six molds share the strip four do, so the chips tighten instead of
+    /// widening the bar past the screen.
+    private var chipWidth: CGFloat { vm.moldCount >= 5 ? 10 : 13 }
+    private var chipGap: CGFloat { vm.moldCount >= 5 ? 3 : 4 }
 
     private var chipRule: some View {
         Rectangle()
@@ -175,7 +183,7 @@ struct VentView: View {
                 Rectangle().fill(VV.sulfur).frame(height: max(0, min(1, fill)) * 18)
             }
         }
-        .frame(width: 13, height: 18)
+        .frame(width: chipWidth, height: 18)
         .overlay(Rectangle().stroke(VV.ink, lineWidth: 2))
         .animation(Motion.spring(0.3, 0.7), value: fill)
         .animation(Motion.spring(0.3, 0.7), value: state)
